@@ -2,7 +2,7 @@
 
 namespace BookLibraryExam.Models
 {
-    public class BookLibrary
+    public class Book
     {
         public int Id { get; set; }
 

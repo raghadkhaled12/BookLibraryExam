@@ -1,0 +1,39 @@
+﻿@model List<BookLibraryExam.Models.Book>
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<h1>Book Library Management</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Book</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.ISBN</td>
+                <td>@book.PublicationYear</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@book.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
